@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+  <script src="./miniquery.js"></script>
+</head>
+<body>
+  <div id="eyed">eyed</div>
+  <div class="klass">klass</div>
+  <a href="#heloo">click me</a>
+
+  <script>
+    SweetSelector.select('#eyed')
+    SweetSelector.select('.klass')
+    SweetSelector.select('a')
+
+    DOM.hide('.klass')
+    DOM.show('.klass')
+    
+    DOM.addClass('.klass', 'shadi')
+    DOM.removeClass('.klass', 'shadi')
+  </script>
+
+  <script>
+    //Relase 2
+    EventDispatcher.on('.klass', 'click', function() {
+      console.log("awesome")
+    })
+
+    EventDispatcher.trigger('.klass', 'click')
+
+  </script>
+
+</body>
+</html>
