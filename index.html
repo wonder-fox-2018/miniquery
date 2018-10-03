@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Miniquery</title>
+        <script type="text/javascript" src="./lib/miniquery.js"></script>
+    </head>
+    <body>
+        <div id='eyed'>Eyed</div>
+        <div class='klass'>Klass</div>
+        <div class='klass'>Klass 2</div>
+        <a href='#hello'>click me</a>
+
+        <script>
+            // Sweet Selector
+            console.log(`${SweetSelector.select('#eyed')}\n${SweetSelector.select('.klass')}\n${SweetSelector.select('a')}`)
+            
+            // DOM Manipulator
+            DOM.hide('#eyed')
+            DOM.hide('.klass')
+            DOM.hide('a')
+
+            DOM.show('#eyed')
+            DOM.show('.klass')
+            DOM.show('a')
+            
+            DOM.addClass('#eyed', 'shadi')
+            DOM.addClass('.klass', 'shadi')
+            DOM.addClass('a', 'shadi')
+            
+            DOM.removeClass('#eyed', 'shadi')
+            DOM.removeClass('.klass', 'shadi')
+            DOM.removeClass('a', 'shadi')
+
+            // Event Dispatcher
+            EventDispatcher.on('#eyed', 'click', () => {alert('Event Triggered on #eyed')})
+            EventDispatcher.on('.klass', 'click', () => {alert('Event Triggered on .klass')})
+            EventDispatcher.on('a', 'click', () => {alert('Event Triggered on <a>')})
+
+            EventDispatcher.trigger('#eyed', 'click')
+            EventDispatcher.trigger('.klass', 'click')
+            EventDispatcher.trigger('a', 'click')
+            
+            // Ajax Wrapper
+            AjaxWrapper.request({
+                url: 'https://reqres.in/api/users/1',
+                type: 'GET',
+                success: () => {
+                    alert('Ajax Wrapper Request Successfully Executed!')
+                },
+                fail: (on) => {
+                    alert(`Ajax Wrapper Request Failed ${on}`)
+                }
+            })
+
+            // Alias Miniquery
+            console.log(miniquery(SweetSelector.select('.klass')))
+            miniquery(DOM.hide('#eyed'))
+
+            // Alias $
+            console.log($(SweetSelector.select('a')))
+            $(DOM.hide('.klass'))
+        </script>
+    </body>
+</html>
