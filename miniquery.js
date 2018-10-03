@@ -5,16 +5,13 @@ class SweetSelector {
     }
   }
 
-
-
-  
   class DOM {
-    static hide(value) {
-      return document.querySelector('.klass').visibility = "hidden"
+    static hide(v) {
+      return document.querySelector(v).visibility = "hidden"
     }
   
-    static show(value) {
-      return document.querySelector('.klass').visibility = "visible"
+    static show(v) {
+      return document.querySelector(v).visibility = "visible"
     }
   
     static addClass(value1, value2) {
@@ -33,7 +30,7 @@ class SweetSelector {
     }
   
     static trigger(value1, value2) {
-      let eletempm = document.querySelector(value1)
+      let temp = document.querySelector(value1)
       temp.dispatchEvent(new MouseEvent(value2))
     }
   }
