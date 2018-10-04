@@ -34,20 +34,20 @@ class SweetSelector {
       temp.dispatchEvent(new MouseEvent(value2))
     }
   }
-  
+
   
   const AjaxWrapper = {
-    request : (objRequest) => {
-        let xmlreq = new XMLHttpRequest()
-        xmlreq.onreadystatechange = function () {
-            if(this.readyState == 4 && this.status == 200) {
-                objRequest.success(this.responseText);
-            } else {
-                objRequest.fail();
+    request : (oReq) => {
+        let xmlReq = new XMLHttpRequest()
+        xmlReq.onreadystatechange = function () {
+            if(this.status == 200 && this.readyState == 4 ) { //The operation is complete. and The request has succeeded.
+                oReq.success(this.responseText);
+            } else { //400 Bad Request,404 Not Found,500 Internal Server Error
+                oReq.fail();
             }
         }
-        xmlreq.open(objRequest.type, objRequest.url, true)
-        xmlreq.send()
+        xmlReq.open(oReq.type, oReq.url, true)
+        xmlReq.send()
     }
   }
   
