@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    .classBaru {
+        color: blue;
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- TagName same with id and class -->
+    <span>Test Id    : </span> <input type="text" id="myText"> <br>
+    <span>Test Class : </span> <input type="text" class="myText"><br>
+    <button onclick="myFunction()">TEST SWEETSELECTOR</button> 
+
+    <hr>
+
+    <div class="klass">
+        <p>Hello ini div show and hide bisa juga buat add class</p>
+    </div>
+    <button onclick="myDOMHidden()">TEST DOM HIDE</button> 
+    <button onclick="myDOMShow()">TEST DOM SHOW</button> 
+
+    <hr>
+    
+    <button onclick="myAddClass()">Add Class Test</button>
+    <button onclick="myRemoveClass()">Remove Class Test</button>
+
+    <script src="./lib/miniquery.js"></script>
+
+    <script>
+        function myFunction() {
+                SweetSelector.select("#myText").value = "Harles Bayu";
+                SweetSelector.select(".myText").value = "Harles Bayu";
+                SweetSelector.select("input").value = "Harles Bayu"; 
+        }
+
+        //==================================================================
+        function myDOMHidden() {
+            DOM.hide(".klass")
+        }
+
+        function myDOMShow() {
+            DOM.show(".klass")
+        }
+        function myAddClass() {
+            DOM.addClass(".klass", ".classBaru")
+        }
+        function myRemoveClass() {
+            DOM.removeClass(".klass", ".classBaru")
+        }
+        //==================================================================
+
+    </script>
+</body>
+</html>
